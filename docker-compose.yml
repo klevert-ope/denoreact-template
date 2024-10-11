@@ -1,0 +1,8 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: klevert/denoreact:v1.0
+    ports:
+      - "8000:8000"

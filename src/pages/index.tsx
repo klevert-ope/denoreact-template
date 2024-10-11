@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Dino } from "../types.ts";
 
-export default function Index() {
+export default function Index(): React.JSX.Element {
   const [dinosaurs, setDinosaurs] = useState<Dino[]>([]);
 
   useEffect(() => {
     (async () => {
       const response = await fetch(`/api/dinosaurs/`);
-      const allDinosaurs = await response.json() as Dino[];
+      const allDinosaurs = (await response.json()) as Dino[];
       setDinosaurs(allDinosaurs);
     })();
   }, []);

@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Dino } from "../types";
+import { Dino } from "../types.ts";
 
-export default function Dinosaur() {
+export default function Dinosaur(): React.JSX.Element {
   const { selectedDinosaur } = useParams();
-  const [dinosaur, setDino] = useState<Dino>({ name: "", description: "" });
+  const [dinosaur, setDinosaur] = useState<Dino>({ name: "", description: "" });
 
   useEffect(() => {
     (async () => {
       const resp = await fetch(`/api/dinosaurs/${selectedDinosaur}`);
-      const dino = await resp.json() as Dino;
-      setDino(dino);
+      const dino = (await resp.json()) as Dino;
+      setDinosaur(dino);
     })();
   }, [selectedDinosaur]);
 

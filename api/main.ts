@@ -14,20 +14,22 @@ router.get("/api/dinosaurs/:dinosaur", (context) => {
     context.response.body = "No dinosaur name provided.";
   }
 
-  const dinosaur = data.find((item) =>
-    item.name.toLowerCase() === context.params.dinosaur.toLowerCase()
+  const dinosaur = data.find(
+    (item) => item.name.toLowerCase() === context.params.dinosaur.toLowerCase(),
   );
 
-  context.response.body = dinosaur ? dinosaur : "No dinosaur found.";
+  context.response.body = dinosaur || "No dinosaur found.";
 });
 
 const app = new Application();
 app.use(oakCors());
 app.use(router.routes());
 app.use(router.allowedMethods());
-app.use(routeStaticFilesFrom([
-  `${Deno.cwd()}/dist`,
-  `${Deno.cwd()}/public`,
-]));
+app.use(routeStaticFilesFrom([`${Deno.cwd()}/dist`, `${Deno.cwd()}/public`]));
 
-await app.listen({ port: 8000 });
+const port = 8000;
+app.addEventListener("listen", ({ port }) => {
+  console.log(`Server running on :${port}`);
+});
+
+await app.listen({ port });

@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Index from "./pages/index";
-import Dinosaur from "./pages/Dinosaur";
+import React from "react";
+import Index from "./pages/index.tsx";
+import Dinosaur from "./pages/Dinosaur.tsx";
 import "./App.css";
 
-function App() {
+function App(): React.JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
