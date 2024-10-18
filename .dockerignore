@@ -3,7 +3,5 @@ Dockerfile
 .dockerignore
 .git
 .idea
-.prettierrc
-.prettierignore
 *.log
 README.md

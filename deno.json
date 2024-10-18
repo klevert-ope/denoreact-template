@@ -1,19 +1,24 @@
 {
   "tasks": {
-    "build": "tsc -b && vite build",
+    "build": "deno task build:ts && vite build",
+    "build:ts": "deno compile --config tsconfig.json src/**/*.ts",
     "dev:api": "deno run --quiet --allow-env --allow-read --allow-net api/main.ts",
     "dev:vite": "deno run -A npm:vite",
     "serve": "deno task build && deno task dev:api",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "formart": "deno fmt src/"
   },
   "compilerOptions": {
-    "lib": ["deno.ns", "deno.dom", "deno.window", "dom"],
-    "target": "esnext"
+    "lib": ["deno.ns", "deno.dom", "deno.window", "dom"]
   },
   "imports": {
     "@oak/oak": "jsr:@oak/oak@^17.0.0",
     "@tajpouria/cors": "jsr:@tajpouria/cors@^1.2.1",
-    "react-router-dom": "npm:react-router-dom@^6.26.2"
+    "@vitejs/plugin-react-swc": "npm:@vitejs/plugin-react-swc@^3.7.1",
+    "react": "npm:react@^18.3.1",
+    "react-dom": "npm:react-dom@^18.3.1",
+    "react-router-dom": "npm:react-router-dom@^6.26.2",
+    "vite": "npm:vite@^5.4.9"
   },
   "nodeModulesDir": "auto"
 }

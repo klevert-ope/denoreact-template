@@ -10,7 +10,7 @@ export default function routeStaticFilesFrom(staticPaths: string[]) {
         await context.send({ root: path, index: "index.html" });
         return;
       } catch {
-        continue;
+        
       }
     }
 
