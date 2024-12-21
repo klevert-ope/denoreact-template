@@ -9,8 +9,8 @@ export default function routeStaticFilesFrom(staticPaths: string[]) {
       try {
         await context.send({ root: path, index: "index.html" });
         return;
+        // deno-lint-ignore no-empty
       } catch {
-        
       }
     }
 

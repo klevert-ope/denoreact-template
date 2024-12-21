@@ -1,24 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Dino } from "../types.ts";
+import React from "react";
+import { Link } from "react-router-dom";
+import useDinosaur from "../hooks/useDinosaur.ts";
 
 export default function Dinosaur(): React.JSX.Element {
-  const { selectedDinosaur } = useParams();
-  const [dinosaur, setDinosaur] = useState<Dino>({ name: "", description: "" });
+  const { data, isLoading, isError, error } = useDinosaur();
 
-  useEffect(() => {
-    (async () => {
-      const resp = await fetch(`/api/dinosaurs/${selectedDinosaur}`);
-      const dino = (await resp.json()) as Dino;
-      setDinosaur(dino);
-    })();
-  }, [selectedDinosaur]);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError && error instanceof Error) {
+    return (
+      <div>
+        <h2>Error</h2>
+        <p>{error.message}</p>
+      </div>
+    );
+  }
+
+  if (!data) {
+    return <div>No data available</div>;
+  }
 
   return (
-    <div>
-      <h1>{dinosaur.name}</h1>
-      <p>{dinosaur.description}</p>
-      <Link to="/">🠠 Back to all dinosaurs</Link>
-    </div>
+    <>
+      <div>
+        <h1 class="h1">{data.name}</h1>
+        <p>{data.description}</p>
+      </div>
+      <Link to="/">
+      <button type="button" class="btn btn-primary text-white">
+        <i class="bi bi-arrow-left-short"></i> Back to all dinosaurs
+      </button>
+      </Link>
+    </>
   );
 }

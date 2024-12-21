@@ -1,33 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Dino } from "../types.ts";
+import React from "react";
+import Dinosaurs from "../components/Dinosaurs/DinosoursList.tsx";
 
-export default function Index(): React.JSX.Element {
-  const [dinosaurs, setDinosaurs] = useState<Dino[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(`/api/dinosaurs/`);
-      const allDinosaurs = (await response.json()) as Dino[];
-      setDinosaurs(allDinosaurs);
-    })();
-  }, []);
-
+const Index: React.FC = () => {
   return (
     <main>
       <h1>Welcome to the Dinosaur app</h1>
       <p>Click on a dinosaur below to learn more.</p>
-      {dinosaurs.map((dinosaur: Dino) => {
-        return (
-          <Link
-            to={`/${dinosaur.name.toLowerCase()}`}
-            key={dinosaur.name}
-            className="dinosaur"
-          >
-            {dinosaur.name}
-          </Link>
-        );
-      })}
+      <Dinosaurs />
     </main>
   );
-}
+};
+
+export default Index;

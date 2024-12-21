@@ -1,5 +1,5 @@
 # Stage 1: Build the Vite project using Deno
-FROM denoland/deno:alpine-2.0.2 AS build
+FROM denoland/deno:alpine-2.1.4 AS build
 
 # Set the working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Install npm dependencies using Deno's npm integration
-RUN deno install
+RUN deno install --allow-scripts
 
 # Enable the nodeModulesDir for npm lifecycle scripts
 ENV DENO_NODE_MOD_DIR="auto"
@@ -17,7 +17,7 @@ ENV DENO_NODE_MOD_DIR="auto"
 RUN deno task build
 
 # Stage 2: Serve the built files using Deno
-FROM denoland/deno:alpine-2.0.2 AS production
+FROM denoland/deno:alpine-2.1.4 AS production
 
 # Set the working directory
 WORKDIR /app

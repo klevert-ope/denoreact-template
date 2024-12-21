@@ -1,5 +1,5 @@
-import { Application, Router } from "@oak/oak";
-import { oakCors } from "@tajpouria/cors";
+import { Application, Router } from "jsr:@oak/oak";
+import { oakCors } from "jsr:@tajpouria/cors";
 import data from "./data.json" with { type: "json" };
 import routeStaticFilesFrom from "./util/routeStaticFilesFrom.ts";
 
@@ -27,7 +27,7 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(routeStaticFilesFrom([`${Deno.cwd()}/dist`, `${Deno.cwd()}/public`]));
 
-const port = 8000;
+const port: number = 8000;
 app.addEventListener("listen", ({ port }) => {
   console.log(`Server running on :${port}`);
 });
