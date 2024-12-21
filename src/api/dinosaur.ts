@@ -1,3 +1,4 @@
+"use server";
 import { Dino } from "../types.ts";
 
 export const fetchDinosaur = async (name: string): Promise<Dino[]> => {

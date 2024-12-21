@@ -12,17 +12,17 @@
     "lib": ["deno.ns", "deno.dom", "deno.window", "dom"]
   },
   "imports": {
-    "@oak/oak": "jsr:@oak/oak@^17.1.3",
-    "@tajpouria/cors": "jsr:@tajpouria/cors@^1.2.1",
-    "@tanstack/react-query": "npm:@tanstack/react-query@^5.62.8",
-    "@types/react": "npm:@types/react@^19.0.1",
-    "@types/react-dom": "npm:@types/react-dom@^19.0.2",
-    "@vitejs/plugin-react-swc": "npm:@vitejs/plugin-react-swc@^3.7.2",
-    "react": "npm:react@^19.0.0",
-    "react-dom": "npm:react-dom@^19.0.0",
-    "react-router-dom": "npm:react-router-dom@^7.0.2",
-    "vite": "npm:vite@^6.0.3",
-    "vite-plugin-pwa": "npm:vite-plugin-pwa@^0.21.1"
-  },
+      "@oak/oak": "jsr:@oak/oak@^17.1.3",
+      "@tajpouria/cors": "jsr:@tajpouria/cors@^1.2.1",
+      "@tanstack/react-query": "npm:@tanstack/react-query@^5.62.8",
+      "@types/react": "npm:@types/react@^19.0.1",
+      "@types/react-dom": "npm:@types/react-dom@^19.0.2",
+      "@vitejs/plugin-react-swc": "npm:@vitejs/plugin-react-swc@^3.7.2",
+      "react": "npm:react@^19.0.0",
+      "react-dom": "npm:react-dom@^19.0.0",
+      "react-router-dom": "npm:react-router-dom@^7.0.2",
+      "vite": "npm:vite@^6.0.3",
+      "vite-plugin-pwa": "npm:vite-plugin-pwa@^0.21.1"
+    },
   "nodeModulesDir": "auto"
 }

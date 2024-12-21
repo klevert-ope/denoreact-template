@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { Link } from "react-router-dom";
 import useDinosaurs from "../../hooks/useDinosaurs.ts";

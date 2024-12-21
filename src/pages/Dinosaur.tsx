@@ -29,9 +29,9 @@ export default function Dinosaur(): React.JSX.Element {
         <p>{data.description}</p>
       </div>
       <Link to="/">
-      <button type="button" class="btn btn-primary text-white">
-        <i class="bi bi-arrow-left-short"></i> Back to all dinosaurs
-      </button>
+        <button type="button" class="btn btn-primary text-white">
+          <i class="bi bi-arrow-left-short"></i> Back to all dinosaurs
+        </button>
       </Link>
     </>
   );
