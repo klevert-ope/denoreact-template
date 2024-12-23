@@ -4,6 +4,7 @@
     "build:ts": "deno compile --config tsconfig.json src/**/*.ts",
     "dev:api": "deno run --quiet --allow-env --allow-read --allow-net api/main.ts",
     "dev:vite": "deno run -A npm:vite --host",
+    "dev": "deno task dev:api & deno task dev:vite",
     "serve": "deno task build && deno task dev:api",
     "preview": "vite preview",
     "formart": "deno fmt src/"
