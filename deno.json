@@ -7,7 +7,7 @@
     "dev": "deno task dev:api & deno task dev:vite",
     "serve": "deno task build && deno task dev:api",
     "preview": "vite preview",
-    "formart": "deno fmt src/"
+    "format": "deno fmt src/"
   },
   "compilerOptions": {
     "lib": ["deno.ns", "deno.dom", "deno.window", "dom"]
