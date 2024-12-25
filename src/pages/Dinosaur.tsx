@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import useDinosaur from "../hooks/useDinosaur.ts";
 
 export default function Dinosaur(): React.JSX.Element {
-  const { data, isLoading, isError, error } = useDinosaur();
+  const { data, isPending, isError, error } = useDinosaur();
 
-  if (isLoading) {
+  if (isPending) {
     return <div>Loading...</div>;
   }
 
